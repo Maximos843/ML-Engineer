@@ -7,7 +7,7 @@ from config import Variables
 def train_model(data: tuple[Pool]) -> None:
     train_pool, eval_pool = data
     model = CatBoostRanker(**Variables.PARAMETERS)
-    model.fit(train_pool, eval_set=eval_pool, verbose=1)
+    model.fit(train_pool, eval_set=eval_pool, verbose=0)
     model.save_model('/model.cbm')
 
 
