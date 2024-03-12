@@ -6,11 +6,11 @@ from sklearn.metrics import ndcg_score
 
 
 if __name__ == '__main__':
-    train = pd.read_csv('/data/vk_train_df.csv')
-    test = pd.read_csv('/data/vk_test_df.csv')
+    train = pd.read_csv('./data/vk_train_df.csv')
+    test = pd.read_csv('./data/vk_test_df.csv')
     train = preprocess_data(train)
     test = preprocess_data(test, is_train=False)
-    X_train, y_train, X_eval, y_eval = split_data_train(train)
+    X_train, X_eval, y_train, y_eval = split_data_train(train)
     train_pool = create_pools(X_train, y_train)
     eval_pool = create_pools(X_eval, y_eval)
     train_model((train_pool, eval_pool))
