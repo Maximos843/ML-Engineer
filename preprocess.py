@@ -32,10 +32,10 @@ def preprocess_data(df: pd.DataFrame, is_train: bool = True) -> pd.DataFrame:
 
 def split_data_train(df: pd.DataFrame) -> tuple[pd.DataFrame]:
     cutoff_id = df['search_id'].quantile(0.9)
-    X_train = df.loc[df.search_id < cutoff_id].drop(columns=["target"])
-    X_eval = df.loc[df.search_id >= cutoff_id].drop(columns=["target"])
-    y_train = df.loc[df.search_id < cutoff_id]["target"]
-    y_eval = df.loc[df.search_id >= cutoff_id]["target"]
+    X_train = df.loc[df.search_id < cutoff_id].drop(columns=['target'])
+    X_eval = df.loc[df.search_id >= cutoff_id].drop(columns=['target'])
+    y_train = df.loc[df.search_id < cutoff_id]['target']
+    y_eval = df.loc[df.search_id >= cutoff_id]['target']
     return X_train, X_eval, y_train, y_eval
 
 
